@@ -4,13 +4,14 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default function Page1() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Shipping address
-      </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -33,6 +34,30 @@ export default function Page1() {
             autoComplete="family-name"
             variant="standard"
           />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="age"
+            name="age"
+            label="Age"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+        <FormControl fullWidth variant="standard">
+        <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Gender"
+        >
+          <MenuItem value={10}>Male</MenuItem>
+          <MenuItem value={20}>Female</MenuItem>
+          <MenuItem value={30}>Other</MenuItem>
+        </Select>
+      </FormControl>
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -58,26 +83,6 @@ export default function Page1() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
             id="zip"
             name="zip"
             label="Zip / Postal code"
@@ -95,12 +100,6 @@ export default function Page1() {
             fullWidth
             autoComplete="shipping country"
             variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
           />
         </Grid>
       </Grid>
